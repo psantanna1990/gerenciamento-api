@@ -1,4 +1,4 @@
-package br.com.psantanna1990;
+package br.com.psantanna1990.controller;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
