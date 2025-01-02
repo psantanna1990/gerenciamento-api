@@ -32,6 +32,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- Eclipse Micropofile -->
+        <!-- <dependency>
+            <groupId>org.eclipse.microprofile.rest.client</groupId>
+            <artifactId>microprofile-rest-client-api</artifactId>
+        </dependency> -->
+
         <!-- swagger -->
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -44,9 +50,9 @@
             <version>1.18.36</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest</artifactId>
+            <artifactId>quarkus-rest-client-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
