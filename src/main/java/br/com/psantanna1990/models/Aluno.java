@@ -3,23 +3,43 @@ package br.com.psantanna1990.models;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Aluno {
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
 
+@Entity
+public class Aluno extends PanacheEntity {
+
+    @Column(name = "nome_completo",length = 255, nullable = false)
     private String nomeCompleto;
+
+    @Column(length = 11, nullable = false)
     private String cpf;
+
+    @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
+
+    @Column(nullable = false)
     private Character sexo;
-    private String rg;
+
+    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Endereco> enderecos;
 
-    public Aluno(String nomeCompleto, String cpf, LocalDate dataNascimento, Character sexo, String rg,
+    public Aluno(String nomeCompleto, String cpf, LocalDate dataNascimento, Character sexo,
             List<Endereco> enderecos) {
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.sexo = sexo;
-        this.rg = rg;
+
         this.enderecos = enderecos;
+    }
+
+    public Aluno() {
+        // construtor padrão exigido pelo Hibernate
     }
 
     public String getNomeCompleto() {
@@ -52,14 +72,6 @@ public class Aluno {
 
     public void setSexo(Character sexo) {
         this.sexo = sexo;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
     }
 
     public List<Endereco> getEnderecos() {
