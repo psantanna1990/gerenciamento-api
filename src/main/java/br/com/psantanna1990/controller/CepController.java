@@ -9,6 +9,8 @@ import br.com.psantanna1990.services.CepService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 
+import jakarta.annotation.security.RolesAllowed;
+
 @Path("/cep")
 public class CepController {
 
@@ -20,6 +22,7 @@ public class CepController {
 
     @GET
     @Path("/{cep}")
+    @RolesAllowed("user") // Apenas usuários autenticados com papel "user" podem acessar
     public RestResponse<RetornoConsultaCepDTO> consultarCep(String cep) {
 
         if (Objects.nonNull(cep) && cep.length() != 8) {
