@@ -37,6 +37,12 @@
             <groupId>org.eclipse.microprofile.rest.client</groupId>
             <artifactId>microprofile-rest-client-api</artifactId>
         </dependency> -->
+        <!-- Teste de autenticação mockada -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-test-security</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- Quarkus OIDC para OAuth2 Google -->
         <dependency>
             <groupId>io.quarkus</groupId>

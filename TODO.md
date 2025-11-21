@@ -1,0 +1,1 @@
+1. Adicionar role para a autenticaçao
